@@ -52,7 +52,7 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
-    "mongodb+srv://tejasgarg:tejasgarg5112002@cluster1.pejgpqr.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster1"
+    "mongodb+srv://tejasgarg:tejasgarg5112002@cluster1.pejgpqr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1"
   )
   .then(() => {
     app.listen(5000);
