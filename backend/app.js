@@ -4,12 +4,21 @@ const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const cors = require("cors")
 
 const placesRoutes = require("./routes/places-routes");
 const usersRoutes = require("./routes/users-routes");
 const HttpError = require("./models/http-error");
 
 const app = express();
+
+app.use(cors(
+  {
+    origin : [],
+    methods : ["POST","GET"],
+    credentials : true
+  }
+));  
 
 app.use(bodyParser.json());
 
@@ -49,7 +58,7 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
-    "mongodb+srv://tejasgarg:tejasgarg5112002@cluster1.pejgpqr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1"
+    "mongodb+srv://tejasgarg:tejasgarg5112002@cluster1.pejgpqr.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster1"
   )
   .then(() => {
     app.listen(5000);
